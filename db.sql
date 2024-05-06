@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 03:39 PM
+-- Generation Time: May 06, 2024 at 03:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,13 @@ CREATE TABLE `bayartanggungan` (
   `tipe` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `bayartanggungan`
+--
+
+INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe`) VALUES
+('1', 'Listrik');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,13 @@ CREATE TABLE `kamar` (
   `alamat` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `kamar`
+--
+
+INSERT INTO `kamar` (`no_kamar`, `tipe`, `lantai`, `harga`, `alamat`) VALUES
+(3, 'VIP', '1', 1500000, 'Kost Satria 1');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +71,13 @@ CREATE TABLE `pembantu` (
   `alamat_kos` varchar(100) DEFAULT NULL,
   `no_hp` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pembantu`
+--
+
+INSERT INTO `pembantu` (`KTP_pembantu`, `alamat_kos`, `no_hp`) VALUES
+('987654321123456', 'Kost Satria 1', '0812345674');
 
 -- --------------------------------------------------------
 
@@ -71,6 +92,13 @@ CREATE TABLE `penyewa` (
   `Jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `penyewa`
+--
+
+INSERT INTO `penyewa` (`KTP_Penyewa`, `Nama`, `alamat`, `Jenis_kelamin`) VALUES
+('123456789876543', 'Muhammad Ammar Hafizh', 'Pabuaran Indah, Cibinong, Bogor', 'Laki-Laki');
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +109,13 @@ CREATE TABLE `transaksi` (
   `kode_transaksi` varchar(30) NOT NULL,
   `quantity` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`kode_transaksi`, `quantity`) VALUES
+('1', '1');
 
 --
 -- Indexes for dumped tables
