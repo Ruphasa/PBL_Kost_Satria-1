@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 02:56 PM
+-- Generation Time: May 06, 2024 at 03:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_satria1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kamar`
+--
+
+CREATE TABLE `kamar` (
+  `no_kamar` int(30) NOT NULL,
+  `tipe` enum('VIP','VIP Non AC','Standar') DEFAULT NULL,
+  `lantai` enum('1','2','3') DEFAULT NULL,
+  `harga` int(11) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
