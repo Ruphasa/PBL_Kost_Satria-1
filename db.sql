@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 03:31 PM
+-- Generation Time: May 06, 2024 at 03:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,6 +81,40 @@ CREATE TABLE `transaksi` (
   `kode_transaksi` varchar(30) NOT NULL,
   `quantity` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bayartanggungan`
+--
+ALTER TABLE `bayartanggungan`
+  ADD PRIMARY KEY (`kode_tanggungan`);
+
+--
+-- Indexes for table `kamar`
+--
+ALTER TABLE `kamar`
+  ADD PRIMARY KEY (`no_kamar`);
+
+--
+-- Indexes for table `pembantu`
+--
+ALTER TABLE `pembantu`
+  ADD PRIMARY KEY (`KTP_pembantu`);
+
+--
+-- Indexes for table `penyewa`
+--
+ALTER TABLE `penyewa`
+  ADD PRIMARY KEY (`KTP_Penyewa`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`kode_transaksi`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
