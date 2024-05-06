@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 03:22 PM
+-- Generation Time: May 06, 2024 at 03:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,18 @@ CREATE TABLE `kamar` (
   `lantai` enum('1','2','3') DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
   `alamat` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembantu`
+--
+
+CREATE TABLE `pembantu` (
+  `KTP_pembantu` varchar(15) NOT NULL,
+  `alamat_kos` varchar(100) DEFAULT NULL,
+  `no_hp` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
