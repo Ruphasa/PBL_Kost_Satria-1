@@ -88,7 +88,7 @@
                     <?php
                         }
                 ?>
-                <a href="frontend.php" type="button" class="btn btn-danger">
+                <a href="penyewa.php" type="button" class="btn btn-danger">
                     <i class="fa fa-reply" aria-hidden="true"></i>
                     batal
                 </a>
