@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 03:27 PM
+-- Generation Time: May 06, 2024 at 03:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_satria1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bayartanggungan`
+--
+
+CREATE TABLE `bayartanggungan` (
+  `kode_tanggungan` varchar(30) NOT NULL,
+  `tipe` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
