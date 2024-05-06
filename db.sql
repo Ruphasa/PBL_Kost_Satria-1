@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 02:46 PM
+-- Generation Time: May 06, 2024 at 02:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,17 @@ CREATE TABLE `penyewa` (
   `Nama` varchar(50) DEFAULT NULL,
   `alamat` varchar(100) DEFAULT NULL,
   `Jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `kode_transaksi` varchar(30) NOT NULL,
+  `quantity` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
