@@ -30,25 +30,25 @@
         </a>
         <a href="transaksi.php?">
             <button style="width: 200px; height: 200px; margin-left: 50px; background-color: rgb(100, 255, 105); border-radius: 25px;">
-                <img src="img/man.png">
+                <img src="img/transaction.png">
                 <p style="margin-top: 150px;">DATA TRANSAKSI</p>
             </button>
         </a>
         <a href="kamar.php">
             <button style="width: 200px; height: 200px; margin-left: 50px; background-color: rgb(100, 245, 255); border-radius: 25px;">
-                <img src="img/man.png">
+                <img src="img/bedroom.png">
                 <p style="margin-top: 150px;">DATA KAMAR</p>
             </button>
         </a>
         <a href="pembantu.php">
             <button style="width: 200px; height: 200px; margin-left: 50px; background-color: rgb(201, 100, 255); border-radius: 25px;">
-                <img src="img/man.png">
+                <img src="img/waiter.png">
                 <p style="margin-top: 150px;">DATA PEMBANTU</p>
             </button>
         </a>
         <a href="tanggungan.php">
             <button style="width: 200px; height: 200px; margin-left: 50px; background-color: rgb(255, 100, 157); border-radius: 25px;">
-                <img src="img/man.png">
+                <img src="img/dependencies.png">
                 <p style="margin-top: 150px;">DATA TANGGUNGAN</p>
             </button>
         </a>
