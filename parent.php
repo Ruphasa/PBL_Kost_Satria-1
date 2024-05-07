@@ -25,35 +25,35 @@
     </center>
     <div>
         <a href="penyewa.php?">
-            <button style="width: 400px; height: 400px; margin-left: 300px; background-color: rgb(255, 100, 100); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 300px; background-color: rgb(255, 100, 100); border-radius: 25px;">
                 <img src="img/man.png" class="img-fluid">
-                <p style="margin-top: 10px; font-size: xx-large;"><b>DATA PENYEWA</b></p>
+                <p style="margin-top: 10px; font-size: x-large;"><b>DATA PENYEWA</b></p>
             </button>
         </a>
         <a href="transaksi.php?">
-            <button style="width: 400px; height: 400px; margin-left: 100px; margin-top: 50px; background-color: rgb(100, 255, 105); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 150px; margin-top: 50px; background-color: rgb(100, 255, 105); border-radius: 25px;">
                 <img src="img/transaction.png" class="img-fluid">
-                <p style="margin-top: 10px; font-size: xx-large;"><b>DATA TRANSAKSI</b></p>
+                <p style="margin-top: 10px; font-size: x-large;"><b>DATA TRANSAKSI</b></p>
             </button>
         </a>
         <a href="kamar.php">
-            <button style="width: 400px; height: 400px; margin-left: 100px; margin-top: 50px; background-color: rgb(100, 245, 255); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 150px; margin-top: 50px; background-color: rgb(100, 245, 255); border-radius: 25px;">
                 <img src="img/bedroom.png" class="img-fluid">
-                <p style="margin-top: 10px; font-size: xx-large;"><b>DATA KAMAR</b></p>
+                <p style="margin-top: 10px; font-size: x-large;"><b>DATA KAMAR</b></p>
             </button>
         </a>
     </div>
     <div style="margin-top: 100px;">    
         <a href="pembantu.php">
-            <button style="width: 400px; height: 400px; margin-left: 500px; background-color: rgb(201, 100, 255); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 450px; background-color: rgb(201, 100, 255); border-radius: 25px;">
                 <img src="img/waiter.png" class="img-fluid">
-                <p style="margin-top: 10px; font-size: xx-large;"><b>DATA PEMBANTU</b></p>
+                <p style="margin-top: 10px; font-size: x-large;"><b>DATA PEMBANTU</b></p>
             </button>
         </a>
         <a href="tanggungan.php">
-            <button style="width: 400px; height: 400px; margin-left: 200px; background-color: rgb(255, 100, 157); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 200px; background-color: rgb(255, 100, 157); border-radius: 25px;">
                 <img src="img/dependencies.png" class="img-fluid">
-                <p style="margin-top: 10px; font-size: xx-large;"><b>DATA TANGGUNGAN</b></p>
+                <p style="margin-top: 10px; font-size: x-large;"><b>DATA TANGGUNGAN</b></p>
             </button>
         </a>
     </div>
