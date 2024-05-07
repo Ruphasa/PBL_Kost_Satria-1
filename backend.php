@@ -1,16 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+function makeConnection(){
+    global $conn;
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 }
-function selectform($conn, $input)
+// Check connection
+function selectform($input)
 {
+    global $conn;
     $sql = "SELECT * FROM $input";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
@@ -21,20 +20,53 @@ function selectform($conn, $input)
     }
 }
 
-function insertInto($conn, $input)
+function insertIntoPenyewa()
 {
-    $sql = "INSERT INTO $input (name) VALUES (?)";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo "error";
-    } else {
-        mysqli_stmt_bind_param($stmt, "s", $input);
-        mysqli_stmt_execute($stmt);
-    }
+    global $conn;
+    $KTP_Penyewa=$_POST['KTP_Penyewa'];
+    $Nama_Penyewa=$_POST['Nama_Penyewa'];
+    $Jenis_Kelamin_Penyewa=$_POST['Jenis_Kelamin_Penyewa'];
+    $No_Hp_Penyewa=$_POST['No_Hp_Penyewa'];
+    $sql = "INSERT INTO Penyewa (
+        KTP_Penyewa, Alamat_Penyewa, Jenis_Kelamin_Penyewa, No_Hp_Penyewa
+        ) VALUES (
+            $KTP_Penyewa, $Nama_Penyewa, $Jenis_Kelamin_Penyewa, $No_Hp_Penyewa
+            )";
+    mysql_query($conn, $sql);
 }
 
-function delete($conn, $input)
+function insertIntoKamar()
 {
+    global $conn;
+    $no_Kamar=$_POST['no_Kamar'];
+    $tipe=$_POST['tipe'];
+    $lantai=$_POST['lantai'];
+    $harga=$_POST['harga'];
+    $alamat=$_POST['alamat'];
+    $sql = "INSERT INTO Kamar (
+        No_Kamar, tipe, lantai, harga, alamat
+        ) VALUES (
+            $no_Kamar, $tipe, $lantai, $harga, $alamat
+            )";
+    mysql_query($conn, $sql);
+}
+
+function insertIntoTransaksi($input)
+{
+    global $conn;
+    $kode_Transaksi=$_POST['kode_Transaksi'];
+    $quantity=$_POST['quantity'];
+    $sql = "INSERT INTO Transaksi (
+        kode_Transaksi, quantity
+        ) VALUES (
+            $kode_Transaksi, $quantity
+            )";
+    mysql_query($conn, $sql);
+}
+
+function delete($input)
+{
+    global $conn;
     $sql = "DELETE FROM $input WHERE id = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
