@@ -13,7 +13,7 @@
             <a class="navbar-brand" href="#">
                 KOST SATRIA
             </a>
-            <a href="parent.html" type="button" class="btn btn-secondary mt-2 me-3">
+            <a href="parent.php" type="button" class="btn btn-secondary mt-2 me-3">
                 home
             </a>
         </div>
@@ -22,13 +22,13 @@
         KOST SATRIA
     </p>
     <div>
-        <a href="penyewa.php">
+        <a href="penyewa.php?">
             <button style="width: 200px; height: 200px; margin-left: 150px; background-color: rgb(255, 100, 100); border-radius: 25px;">
                 <img src="img/man.png">
                 <p style="margin-top: 150px;">DATA PENYEWA</p>
             </button>
         </a>
-        <a href="transaksi.php">
+        <a href="transaksi.php?">
             <button style="width: 200px; height: 200px; margin-left: 50px; background-color: rgb(100, 255, 105); border-radius: 25px;">
                 <img src="img/man.png">
                 <p style="margin-top: 150px;">DATA TRANSAKSI</p>

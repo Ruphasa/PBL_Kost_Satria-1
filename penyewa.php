@@ -13,6 +13,9 @@
             <a class="navbar-brand" href="#">
                 KOST SATRIA
             </a>
+            <a href="parent.php" type="button" class="btn btn-secondary mt-2 me-3">
+                home
+            </a>
         </div>
     </nav>
     <div class="container">
@@ -24,7 +27,7 @@
                     <figcaption class="blockquote-footer">
                 Managed by <cite title="Source Title">handsome people</cite>
             </figcaption>
-            <a href="kelola.php" type="button" class="btn btn-primary mb-3">
+            <a href="kelola.php?tambahpenyewa=1" type="button" class="btn btn-primary mb-3">
                 <i class="fa fa-plus"></i>
                 Tambah Data
             </a>
@@ -52,11 +55,11 @@
                         <img src="img/burung.jpg" style="width: 150px;">
                     </td>
                     <td>
-                        <a href="kelola.php?ubah=1" type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah1=1" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>
-                        <a href="proses.php?hapus=1" type="button" class="btn btn-danger btn-sm">
+                        <a href="proses.php?hapus1=1" type="button" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                             Hapus
                         </a>
