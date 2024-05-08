@@ -19,7 +19,7 @@
         </div>
     </nav>
     <div class="container">
-    <h1 class="mt-3">Data Penyewa</h1>
+    <h1 class="mt-3">Data Pembantu</h1>
         <figure>
             <blockquote class="blockquote">
                 <p>KOST SATRIA</p>
@@ -27,7 +27,7 @@
                     <figcaption class="blockquote-footer">
                 Managed by <cite title="Source Title">handsome people</cite>
             </figcaption>
-            <a href="kelola.php?tambahpenyewa=1" type="button" class="btn btn-primary mb-3">
+            <a href="kelola.php?tambahpembantu=1" type="button" class="btn btn-primary mb-3">
                 <i class="fa fa-plus"></i>
                 Tambah Data
             </a>
@@ -35,10 +35,8 @@
             <table class="table align-middle table-bordered table-howver">
                 <thead>
                     <tr>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Jenis Kelamin</th>
-                    <th>No. Hp</th>
+                    <th>N0. Hp</th>
+                    <th>Alamat Kos</th>
                     <th>No. KTP</th>
                     <th>Foto KTP</th>
                     <th>Aksi</th>
@@ -46,20 +44,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                    <td>Agus</td>
-                    <td>Malang</td>
-                    <td>L</td>
-                    <td>08123456789</td>
-                    <td>3571234567890</td>
+                    <td>4231</td>
+                    <td>Kos 01</td>
+                    <td>090909909</td>
                     <td>
                         <img src="img/burung.jpg" style="width: 150px;">
                     </td>
                     <td>
-                        <a href="kelola.php?ubah1=1" type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah4=1" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>
-                        <a href="proses.php?hapus1=1" type="button" class="btn btn-danger btn-sm">
+                        <a href="proses.php?hapus4=1" type="button" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                             Hapus
                         </a>
