@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 03:49 PM
+-- Generation Time: May 08, 2024 at 07:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,15 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bayartanggungan` (
   `kode_tanggungan` varchar(30) NOT NULL,
-  `tipe` varchar(10) DEFAULT NULL
+  `tipe` varchar(10) DEFAULT NULL,
+  `kode_transaksi` varchar(30) DEFAULT NULL,
+  `no_kamar` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bayartanggungan`
 --
 
-INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe`) VALUES
-('1', 'Listrik');
+INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe`, `kode_transaksi`, `no_kamar`) VALUES
+('1', 'Listrik', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -50,15 +52,29 @@ CREATE TABLE `kamar` (
   `tipe` enum('VIP','VIP Non AC','Standar') DEFAULT NULL,
   `lantai` enum('1','2','3') DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
-  `alamat` varchar(100) DEFAULT NULL
+  `alamat` varchar(100) DEFAULT NULL,
+  `KTP_pembantu` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kamar`
 --
 
-INSERT INTO `kamar` (`no_kamar`, `tipe`, `lantai`, `harga`, `alamat`) VALUES
-(3, 'VIP', '1', 1500000, 'Kost Satria 1');
+INSERT INTO `kamar` (`no_kamar`, `tipe`, `lantai`, `harga`, `alamat`, `KTP_pembantu`) VALUES
+(3, 'VIP', '1', 1500000, 'Kost Satria 1', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menyewa`
+--
+
+CREATE TABLE `menyewa` (
+  `kode_transaksi` varchar(30) DEFAULT NULL,
+  `no_kamar` int(30) DEFAULT NULL,
+  `tanggalmasuk` date DEFAULT NULL,
+  `tanggalkeluar` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -107,15 +123,17 @@ INSERT INTO `penyewa` (`KTP_Penyewa`, `Nama`, `alamat`, `Jenis_kelamin`) VALUES
 
 CREATE TABLE `transaksi` (
   `kode_transaksi` varchar(30) NOT NULL,
-  `quantity` varchar(30) DEFAULT NULL
+  `quantity` varchar(30) DEFAULT NULL,
+  `KTP_Penyewa` varchar(15) DEFAULT NULL,
+  `KTP_pembantu` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`kode_transaksi`, `quantity`) VALUES
-('1', '1');
+INSERT INTO `transaksi` (`kode_transaksi`, `quantity`, `KTP_Penyewa`, `KTP_pembantu`) VALUES
+('1', '1', NULL, NULL);
 
 --
 -- Indexes for dumped tables
