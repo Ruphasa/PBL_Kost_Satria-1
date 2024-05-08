@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 07:35 AM
+-- Generation Time: May 08, 2024 at 07:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,13 +34,6 @@ CREATE TABLE `bayartanggungan` (
   `no_kamar` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `bayartanggungan`
---
-
-INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe`, `kode_transaksi`, `no_kamar`) VALUES
-('1', 'Listrik', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -55,13 +48,6 @@ CREATE TABLE `kamar` (
   `alamat` varchar(100) DEFAULT NULL,
   `KTP_pembantu` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kamar`
---
-
-INSERT INTO `kamar` (`no_kamar`, `tipe`, `lantai`, `harga`, `alamat`, `KTP_pembantu`) VALUES
-(3, 'VIP', '1', 1500000, 'Kost Satria 1', NULL);
 
 -- --------------------------------------------------------
 
@@ -88,13 +74,6 @@ CREATE TABLE `pembantu` (
   `no_hp` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `pembantu`
---
-
-INSERT INTO `pembantu` (`KTP_pembantu`, `alamat_kos`, `no_hp`) VALUES
-('987654321123456', 'Kost Satria 1', '0812345674');
-
 -- --------------------------------------------------------
 
 --
@@ -107,13 +86,6 @@ CREATE TABLE `penyewa` (
   `alamat` varchar(100) DEFAULT NULL,
   `Jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `penyewa`
---
-
-INSERT INTO `penyewa` (`KTP_Penyewa`, `Nama`, `alamat`, `Jenis_kelamin`) VALUES
-('123456789876543', 'Muhammad Ammar Hafizh', 'Pabuaran Indah, Cibinong, Bogor', 'Laki-Laki');
 
 -- --------------------------------------------------------
 
@@ -129,13 +101,6 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`kode_transaksi`, `quantity`, `KTP_Penyewa`, `KTP_pembantu`) VALUES
-('1', '1', NULL, NULL);
-
---
 -- Indexes for dumped tables
 --
 
@@ -143,13 +108,23 @@ INSERT INTO `transaksi` (`kode_transaksi`, `quantity`, `KTP_Penyewa`, `KTP_pemba
 -- Indexes for table `bayartanggungan`
 --
 ALTER TABLE `bayartanggungan`
-  ADD PRIMARY KEY (`kode_tanggungan`);
+  ADD PRIMARY KEY (`kode_tanggungan`),
+  ADD KEY `kode_transaksi` (`kode_transaksi`),
+  ADD KEY `no_kamar` (`no_kamar`);
 
 --
 -- Indexes for table `kamar`
 --
 ALTER TABLE `kamar`
-  ADD PRIMARY KEY (`no_kamar`);
+  ADD PRIMARY KEY (`no_kamar`),
+  ADD KEY `KTP_pembantu` (`KTP_pembantu`);
+
+--
+-- Indexes for table `menyewa`
+--
+ALTER TABLE `menyewa`
+  ADD KEY `kode_transaksi` (`kode_transaksi`),
+  ADD KEY `no_kamar` (`no_kamar`);
 
 --
 -- Indexes for table `pembantu`
@@ -167,7 +142,40 @@ ALTER TABLE `penyewa`
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`kode_transaksi`);
+  ADD PRIMARY KEY (`kode_transaksi`),
+  ADD KEY `KTP_Penyewa` (`KTP_Penyewa`),
+  ADD KEY `KTP_pembantu` (`KTP_pembantu`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bayartanggungan`
+--
+ALTER TABLE `bayartanggungan`
+  ADD CONSTRAINT `bayartanggungan_ibfk_1` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`),
+  ADD CONSTRAINT `bayartanggungan_ibfk_2` FOREIGN KEY (`no_kamar`) REFERENCES `kamar` (`no_kamar`);
+
+--
+-- Constraints for table `kamar`
+--
+ALTER TABLE `kamar`
+  ADD CONSTRAINT `kamar_ibfk_1` FOREIGN KEY (`KTP_pembantu`) REFERENCES `pembantu` (`KTP_pembantu`);
+
+--
+-- Constraints for table `menyewa`
+--
+ALTER TABLE `menyewa`
+  ADD CONSTRAINT `menyewa_ibfk_1` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`),
+  ADD CONSTRAINT `menyewa_ibfk_2` FOREIGN KEY (`no_kamar`) REFERENCES `kamar` (`no_kamar`);
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`KTP_Penyewa`) REFERENCES `penyewa` (`KTP_Penyewa`),
+  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`KTP_pembantu`) REFERENCES `pembantu` (`KTP_pembantu`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
