@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 07:55 AM
+-- Generation Time: May 08, 2024 at 02:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,10 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bayartanggungan` (
   `kode_tanggungan` varchar(30) NOT NULL,
-  `tipe` varchar(10) DEFAULT NULL,
+  `tipe_tanggungan` varchar(10) DEFAULT NULL,
   `kode_transaksi` varchar(30) DEFAULT NULL,
   `no_kamar` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bayartanggungan`
+--
+
+INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe_tanggungan`, `kode_transaksi`, `no_kamar`) VALUES
+('01', 'Listrik', '01', 3);
 
 -- --------------------------------------------------------
 
@@ -42,12 +49,19 @@ CREATE TABLE `bayartanggungan` (
 
 CREATE TABLE `kamar` (
   `no_kamar` int(30) NOT NULL,
-  `tipe` enum('VIP','VIP Non AC','Standar') DEFAULT NULL,
-  `lantai` enum('1','2','3') DEFAULT NULL,
-  `harga` int(11) DEFAULT NULL,
-  `alamat` varchar(100) DEFAULT NULL,
+  `tipe_kamar` enum('VIP','VIP Non AC','Standar') DEFAULT NULL,
+  `lantai_kamar` enum('1','2','3') DEFAULT NULL,
+  `harga_kamar` int(11) DEFAULT NULL,
+  `alamat_kamar` varchar(100) DEFAULT NULL,
   `KTP_pembantu` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kamar`
+--
+
+INSERT INTO `kamar` (`no_kamar`, `tipe_kamar`, `lantai_kamar`, `harga_kamar`, `alamat_kamar`, `KTP_pembantu`) VALUES
+(3, 'VIP', '1', 1500000, 'Kost Satria 1', '987654321');
 
 -- --------------------------------------------------------
 
@@ -62,6 +76,13 @@ CREATE TABLE `menyewa` (
   `tanggalkeluar` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `menyewa`
+--
+
+INSERT INTO `menyewa` (`kode_transaksi`, `no_kamar`, `tanggalmasuk`, `tanggalkeluar`) VALUES
+('01', 3, '2024-05-01', '2024-11-01');
+
 -- --------------------------------------------------------
 
 --
@@ -71,8 +92,16 @@ CREATE TABLE `menyewa` (
 CREATE TABLE `pembantu` (
   `KTP_pembantu` varchar(15) NOT NULL,
   `alamat_kos` varchar(100) DEFAULT NULL,
-  `no_hp` varchar(15) DEFAULT NULL
+  `no_hp_pembantu` varchar(15) DEFAULT NULL,
+  `nama_pembantu` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pembantu`
+--
+
+INSERT INTO `pembantu` (`KTP_pembantu`, `alamat_kos`, `no_hp_pembantu`, `nama_pembantu`) VALUES
+('987654321', 'Kost Satria 1', '08213445543', 'Joko');
 
 -- --------------------------------------------------------
 
@@ -82,10 +111,18 @@ CREATE TABLE `pembantu` (
 
 CREATE TABLE `penyewa` (
   `KTP_Penyewa` varchar(15) NOT NULL,
-  `Nama` varchar(50) DEFAULT NULL,
-  `alamat` varchar(100) DEFAULT NULL,
-  `Jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL
+  `nama_penyewa` varchar(50) DEFAULT NULL,
+  `alamat_penyewa` varchar(100) DEFAULT NULL,
+  `jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL,
+  `no_hp_penyewa` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `penyewa`
+--
+
+INSERT INTO `penyewa` (`KTP_Penyewa`, `nama_penyewa`, `alamat_penyewa`, `jenis_kelamin`, `no_hp_penyewa`) VALUES
+('123456789', 'Muhammad Ammar Hafizh', 'Pabuaran Indah Blok Cibinong, Bogor', 'Laki-Laki', '082155667732');
 
 -- --------------------------------------------------------
 
@@ -99,6 +136,13 @@ CREATE TABLE `transaksi` (
   `KTP_Penyewa` varchar(15) DEFAULT NULL,
   `KTP_pembantu` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`kode_transaksi`, `quantity`, `KTP_Penyewa`, `KTP_pembantu`) VALUES
+('01', '1', '123456789', '987654321');
 
 --
 -- Indexes for dumped tables
