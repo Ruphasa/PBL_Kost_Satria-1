@@ -1,3 +1,8 @@
+<?php
+    require 'backend.php';
+    $sql= "SELECT * FROM kamar";
+    $data = printData($sql);
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,16 +45,19 @@
                     <th>Lantai</th>
                     <th>Harga</th>
                     <th>Alamat</th>
+                    <th>KTP Pembantu</th>
                     <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                    <td>01</td>
-                    <td>02</td>
-                    <td>01</td>
-                    <td>1.000.000</td>
-                    <td>kos 1</td>
+                    <?php foreach($data as $row): ?>
+                    <td><?= $row['no_kamar'] ?></td>
+                    <td><?= $row['tipe_kamar'] ?></td>
+                    <td><?= $row['lantai_kamar'] ?></td>
+                    <td><?= $row['harga_kamar'] ?></td>
+                    <td><?= $row['alamat_kamar'] ?></td>
+                    <td><?= $row['KTP_pembantu'] ?></td>
                     <td>
                         <a href="kelola.php?ubah3=1" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
@@ -61,6 +69,7 @@
                         </a>
                     </td>
                     </tr>
+                    <?php endforeach; ?>
                     <tr class="align-bottom">
                     </tr>
                 </tbody>

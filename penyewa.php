@@ -1,3 +1,8 @@
+<?php
+    require 'backend.php';
+    $sql= "SELECT * FROM penyewa";
+    $data = printData($sql);
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,25 +40,22 @@
             <table class="table align-middle table-bordered table-howver">
                 <thead>
                     <tr>
+                    <th>No. KTP</th>
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>Jenis Kelamin</th>
                     <th>No. Hp</th>
-                    <th>No. KTP</th>
-                    <th>Foto KTP</th>
                     <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                    <td>Agus</td>
-                    <td>Malang</td>
-                    <td>L</td>
-                    <td>08123456789</td>
-                    <td>3571234567890</td>
-                    <td>
-                        <img src="img/burung.jpg" style="width: 150px;">
-                    </td>
+                        <?php foreach($data as $row): ?>
+                    <td><?= $row['KTP_Penyewa'] ?></td>
+                    <td><?= $row['nama_penyewa'] ?></td>
+                    <td><?= $row['alamat_penyewa'] ?></td>
+                    <td><?= $row['jenis_kelamin'] ?></td>
+                    <td><?= $row['no_hp_penyewa'] ?></td>
                     <td>
                         <a href="kelola.php?ubah1=1" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
@@ -65,6 +67,7 @@
                         </a>
                     </td>
                     </tr>
+                    <?php endforeach; ?>
                     <tr class="align-bottom">
                     </tr>
                 </tbody>

@@ -1,3 +1,8 @@
+<?php
+    require 'backend.php';
+    $sql= "SELECT * FROM transaksi";
+    $data = printData($sql);
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,13 +42,18 @@
                         <tr>
                         <th>Kode Transaksi</th>
                         <th>Quantity</th>
+                        <th>KTP Penyewa</th>
+                        <th>KTP Pembantu</th>
                         <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                        <td>0120240506001</td>
-                        <td>01 & 02</td>
+                        <?php foreach($data as $row): ?>
+                    <td><?= $row['kode_transaksi'] ?></td>
+                    <td><?= $row['quantity'] ?></td>
+                    <td><?= $row['KTP_Penyewa'] ?></td>
+                    <td><?= $row['KTP_pembantu'] ?></td>
                         <td>
                             <a href="kelola.php?ubah2=1" type="button" class="btn btn-success btn-sm">
                                 <i class="fa fa-pencil"></i>
@@ -55,6 +65,7 @@
                             </a>
                         </td>
                         </tr>
+                        <?php endforeach; ?>
                         <tr class="align-bottom">
                         </tr>
                     </tbody>
