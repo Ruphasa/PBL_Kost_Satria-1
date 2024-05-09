@@ -20,15 +20,23 @@
     </nav>
     <?php
             if (isset($_GET['tambahpenyewa']) || isset($_GET['ubah1'])) {
-        ?>
+                ?>
             <div class="container">
                 <form method="POST" action="proses.php">
+                    <div class="mb-3 row">
+                        <label for="NKTP" class="col-sm-2 col-form-label">
+                            No. KTP
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="NKTP" name="NKTP" placeholder="ex: agus">
+                        </div>
+                    </div>      
                     <div class="mb-3 row">
                         <label for="Nama" class="col-sm-2 col-form-label">
                             Nama
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Nama" placeholder="ex: agus">
+                            <input type="text" class="form-control" id="Nama" name="Nama" placeholder="ex: agus">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -36,7 +44,7 @@
                             Alamat
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Alamat" placeholder="ex: agus">
+                            <input type="text" class="form-control" id="Alamat" name="Alamat" placeholder="ex: agus">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -44,7 +52,7 @@
                             Jenis Kelamin
                         </label>
                         <div class="col-sm-10">
-                            <select id="Jenis Kelamin" class="form-select">
+                            <select id="Jenis Kelamin" name ="Jenis_Kelamin" class="form-select">
                                 <option selected>Jenis Kelamin</option>
                                 <option value="1">L</option>
                                 <option value="2">P</option>
@@ -56,38 +64,22 @@
                             No. Hp
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="No. Hp" placeholder="ex: agus">
+                            <input type="text" class="form-control" id="No. Hp" name="No_Hp" placeholder="ex: agus">
                         </div>
                     </div>
-                    <div class="mb-3 row">
-                        <label for="NKTP" class="col-sm-2 col-form-label">
-                            No. KTP
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="NKTP" placeholder="ex: agus">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="Foto KTP" class="col-sm-2 col-form-label">
-                            Foto KTP
-                        </label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="file" id="Foto KTP">
-                        </div>
-                    </div>      
                     <div class="mb-3 row mt-4">
                         <div class="col">
                         <?php
                                 if (isset($_GET['tambahpenyewa'])) {
                             ?>
-                                <button type="submit" name="aksi1" value="edit" class="btn btn-primary">
+                                <button type="submit" name="aksi1" value="add" class="btn btn-primary">
                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                     Tambahkan
                                 </button>
                             <?php
                                 } else {
                             ?>
-                                <button type="submit" name="aksi1" value="add" class="btn btn-primary">
+                                <button type="submit" name="aksi1" value="edit" class="btn btn-primary">
                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                     Simpan Perubahan
                                 </button>
@@ -108,19 +100,35 @@
             <div class="container">
                 <form method="POST" action="proses.php">
                     <div class="mb-3 row">
-                        <label for="Nama" class="col-sm-2 col-form-label">
+                        <label for="kode_transaksi" class="col-sm-2 col-form-label">
                             Kode Transaksi
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                            <input type="text" class="form-control" id="kode_transaksi" name = "kode_transaksi" placeholder="ex: 01932173242846">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="Alamat" class="col-sm-2 col-form-label">
+                        <label for="Quantity" class="col-sm-2 col-form-label">
                             Quantity
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Alamat" placeholder="ex: 2 kamar">
+                            <input type="text" class="form-control" id="Quantity" name = "Quantity" placeholder="ex: 2 kamar">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="KTP_Penyewa" class="col-sm-2 col-form-label">
+                            KTP Penyewa
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="KTP_Penyewa" name = "KTPPenyewa" placeholder="ex: 2 kamar">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="KTP_Pembantu" class="col-sm-2 col-form-label">
+                            KTP Pembantu
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="KTP_Pembantu" name = "KTPPembantu" placeholder="ex: 2 kamar">
                         </div>
                     </div>
                     <div class="mb-3 row mt-4">
@@ -128,14 +136,14 @@
                         <?php
                                 if (isset($_GET['tambahtransaksi'])) {
                             ?>
-                                <button type="submit" name="aksi2" value="edit" class="btn btn-primary">
+                                <button type="submit" name="aksi2" value="add" class="btn btn-primary">
                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                     Tambahkan
                                 </button>
                             <?php
                                 } else {
                             ?>
-                                <button type="submit" name="aksi2" value="add" class="btn btn-primary">
+                                <button type="submit" name="aksi2" value="edit" class="btn btn-primary">
                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                     Simpan Perubahan
                                 </button>
@@ -160,7 +168,7 @@
                                 No. Kamar
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                                <input type="text" class="form-control" id="no_kamar" name = "no_kamar" placeholder="ex: 01932173242846">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -168,7 +176,7 @@
                                 Tipe
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Alamat" placeholder="ex: 2 kamar">
+                                <input type="text" class="form-control" id="tipe_kamar" name="tipe_kamar" placeholder="ex: 2 kamar">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -176,7 +184,7 @@
                                 Lantai
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                                <input type="text" class="form-control" id="lantai_kamar" name="lantai_kamar" placeholder="ex: 01932173242846">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -184,7 +192,7 @@
                                 Harga
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Alamat" placeholder="ex: 2 kamar">
+                                <input type="text" class="form-control" id="harga_kamar" name="harga_kamar" placeholder="ex: 2 kamar">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -192,7 +200,15 @@
                                 Alamat
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                                <input type="text" class="form-control" id="alamat_kamar" name="alamat_kamar" placeholder="ex: 01932173242846">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="Nama" class="col-sm-2 col-form-label">
+                                KTP Pembantu
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="KTP_Pembantu" name="KTPPembantu" placeholder="ex: 01932173242846">
                             </div>
                         </div>
                         <div class="mb-3 row mt-4">
@@ -200,14 +216,14 @@
                             <?php
                                     if (isset($_GET['tambahkamar'])) {
                                 ?>
-                                    <button type="submit" name="aksi3" value="edit" class="btn btn-primary">
+                                    <button type="submit" name="aksi3" value="add" class="btn btn-primary">
                                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                         Tambahkan
                                     </button>
                                 <?php
                                     } else {
                                 ?>
-                                    <button type="submit" name="aksi3" value="add" class="btn btn-primary">
+                                    <button type="submit" name="aksi3" value="edit" class="btn btn-primary">
                                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                         Simpan Perubahan
                                     </button>
@@ -228,50 +244,50 @@
                 <div class="container">
                     <form method="POST" action="proses.php">
                         <div class="mb-3 row">
-                            <label for="Nama" class="col-sm-2 col-form-label">
-                                No. Hp
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                            <div class="mb-3 row">
+                                <label for="Nama" class="col-sm-2 col-form-label">
+                                    No. KTP
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="NKTP" name = "NKTP" placeholder="ex: 01932173242846">
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
+                            <div class="mb-3 row">
+                                <label for="Nama" class="col-sm-2 col-form-label">
+                                    Nama
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="nama_pembantu" name = "nama" placeholder="ex: 01932173242846">
+                                </div>
+                            </div>
                             <label for="Alamat" class="col-sm-2 col-form-label">
                                 Alamat Kos
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Alamat" placeholder="ex: 2 kamar">
+                                <input type="text" class="form-control" id="Alamat_kos" name = "AlamatKos" placeholder="ex: 2 kamar">
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="Nama" class="col-sm-2 col-form-label">
-                                No. KTP
+                                No. Hp
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                                <input type="text" class="form-control" id="no_hp" name = "no_hp" placeholder="ex: 01932173242846">
                             </div>
                         </div>
-                        <div class="mb-3 row">
-                            <label for="Foto KTP" class="col-sm-2 col-form-label">
-                                Foto KTP
-                            </label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="file" id="Foto KTP">
-                            </div>
-                        </div> 
                         <div class="mb-3 row mt-4">
                             <div class="col">
                             <?php
                                     if (isset($_GET['tambahpembantu'])) {
                                 ?>
-                                    <button type="submit" name="aksi4" value="edit" class="btn btn-primary">
+                                    <button type="submit" name="aksi4" value="add" class="btn btn-primary">
                                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                         Tambahkan
                                     </button>
                                 <?php
                                     } else {
                                 ?>
-                                    <button type="submit" name="aksi4" value="add" class="btn btn-primary">
+                                    <button type="submit" name="aksi4" value="edit" class="btn btn-primary">
                                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                         Simpan Perubahan
                                     </button>
@@ -296,7 +312,7 @@
                                 Kode Tanggungan
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Nama" placeholder="ex: 01932173242846">
+                                <input type="text" class="form-control" id="kode_tanggungan" name="kode_tanggungan" placeholder="ex: 01932173242846">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -304,7 +320,23 @@
                                 Tipe
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Alamat" placeholder="ex: 2 kamar">
+                                <input type="text" class="form-control" id="tipe" name="tipe_tanggungan" placeholder="ex: air">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="Alamat" class="col-sm-2 col-form-label">
+                                Kode Transaksi
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="kode_transaksi" name="kode_transaksi" placeholder="ex: 2 kamar">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="Alamat" class="col-sm-2 col-form-label">
+                                No. Kamar
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="no_kamar" name="no_kamar" placeholder="ex: 2 kamar">
                             </div>
                         </div>
                         <div class="mb-3 row mt-4">
@@ -312,14 +344,14 @@
                             <?php
                                     if (isset($_GET['tambahtanggungan'])) {
                                 ?>
-                                    <button type="submit" name="aksi5" value="edit" class="btn btn-primary">
+                                    <button type="submit" name="aksi5" value="add" class="btn btn-primary">
                                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                         Tambahkan
                                     </button>
                                 <?php
                                     } else {
                                 ?>
-                                    <button type="submit" name="aksi5" value="add" class="btn btn-primary">
+                                    <button type="submit" name="aksi5" value="edit" class="btn btn-primary">
                                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                         Simpan Perubahan
                                     </button>

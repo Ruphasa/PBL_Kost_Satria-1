@@ -42,6 +42,7 @@ function insertIntoPenyewa()
         ) VALUES (
             $KTP_Penyewa, $Nama_Penyewa, $Jenis_Kelamin_Penyewa, $No_Hp_Penyewa
             )";
+    mysqli_query($conn, $sql);
 }
 
 // function insertIntoKamar()
@@ -73,18 +74,18 @@ function insertIntoPenyewa()
 //     mysql_query($conn, $sql);
 // }
 
-// function delete($input)
-// {
-//     global $conn;
-//     $sql = "DELETE FROM $input WHERE id = ?";
-//     $stmt = mysqli_stmt_init($conn);
-//     if (!mysqli_stmt_prepare($stmt, $sql)) {
-//         echo "error";
-//     } else {
-//         mysqli_stmt_bind_param($stmt, "i", $input);
-//         mysqli_stmt_execute($stmt);
-//     }
-// }
+function delete($input)
+{
+    global $conn;
+    $sql = "DELETE FROM $input WHERE id = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "error";
+    } else {
+        mysqli_stmt_bind_param($stmt, "i", $input);
+        mysqli_stmt_execute($stmt);
+    }
+}
 
 // function updateSet($conn, $input)
 // {

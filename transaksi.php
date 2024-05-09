@@ -32,7 +32,7 @@
                     <figcaption class="blockquote-footer">
                 Managed by <cite title="Source Title">handsome people</cite>
             </figcaption>
-            <a href="kelola.php?tambahtransaksi=1" type="button" class="btn btn-primary mb-3">
+            <a href="kelola.php?tambahtransaksi" type="button" class="btn btn-primary mb-3">
                 <i class="fa fa-plus"></i>
                 Tambah Data
             </a>

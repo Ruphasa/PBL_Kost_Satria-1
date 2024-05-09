@@ -51,7 +51,7 @@
                             <tr>
                             <?php foreach($data as $row): ?>
                     <td><?= $row['kode_tanggungan'] ?></td>
-                    <td><?= $row['tipe'] ?></td>
+                    <td><?= $row['tipe_tanggungan'] ?></td>
                     <td><?= $row['kode_transaksi'] ?></td>
                     <td><?= $row['no_kamar'] ?></td>
                             <td>
