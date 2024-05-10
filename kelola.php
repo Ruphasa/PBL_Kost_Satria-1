@@ -16,6 +16,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="font/css/font-awesome.min.css">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -198,7 +199,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
                                 Tipe
                             </label>
                             <div class="col-sm-10">
-                                <select id="tipe_kamar" name="tipe_kamar" class="form-select">
+                                <select id="tipe_kamar" name="tipe_kamar" class="form-select" onchange="UpdatePrice()">
                                     <option selected></option>
                                     <option value='Standar'>Standar</option>
                                     <option value='VIP'>VIP</option>
@@ -232,6 +233,23 @@ $databayartanggungan = printData($sqlbayartanggungan);
                                 </select>
                             </div>
                         </div>
+                        <script>
+                             function updatePrice() {
+                                const roomType = document.getElementById('tipe_kamar').value;
+                                const priceSelect = document.getElementById('harga_kamar');
+
+                                     if (roomType === 'VIP') {
+                                     priceSelect.value = '1500000'; // Set price to 1,500,000 for VIP
+                                     } else if (roomType === 'VIP Non AC') {
+                                        priceSelect.value = '1200000'; // Set price to 1,200,000 for VIP Non AC
+                                     } else if (roomType === 'Standar') {
+                                        priceSelect.value = '1000000'; // Set price to 1,000,000 for Standar
+                                     }else {
+                                        priceSelect.value = '0'; // Reset price to 0 for non-VIP options
+                                }
+                            }
+                            $('#tipe_kamar').on('change', updatePrice);
+                        </script>
                         <div class="mb-3 row">
                             <label for="Nama" class="col-sm-2 col-form-label">
                                 Alamat
@@ -349,7 +367,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
         ?>
                         <div class="container">
                             <form method="POST" action="proses.php">
-                                <div class="mb-3 row">
+                                <!-- <div class="mb-3 row">
                                     <label for="Nama" class="col-sm-2 col-form-label">
                                         Kode Tanggungan
                                     </label>
@@ -357,7 +375,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
                                         <input type="text" class="form-control" id="kode_tanggungan" name="kode_tanggungan"
                                             placeholder="ex: L1K01L1001">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-3 row">
                                     <label for="Alamat" class="col-sm-2 col-form-label">
                                         Tipe
