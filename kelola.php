@@ -1,8 +1,13 @@
 <?php
 require 'backend.php';
-$sql = "SELECT * FROM penyewa";
-$data = printData($sql);
+$sqlPenyewa = "SELECT * FROM penyewa";
+$sqlPembantu = "SELECT * FROM pembantu";
+$sqlbayartanggungan = "SELECT * FROM bayartanggungan";
+$dataPenyewa = printData($sqlPenyewa);
+$dataPembantu = printData($sqlPembantu);
+$databayartanggungan = printData($sqlbayartanggungan);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,8 +132,8 @@ $data = printData($sql);
                         <div class="col-sm-10">
                         <select id="KTP_Penyewa" name="NKTP" class="form-select">
                             <option selected></option>
-                        <?php foreach ($data as $row): ?>
-                                <option value="1"<?= $row ?>"><?= $row['KTP_Penyewa'] ?></option>
+                        <?php foreach ($dataPenyewa as $row): ?>
+                                <option value="1"><?= $row['KTP_Penyewa'] ?></option>
                         <?php endforeach; ?>
                         </select>
                         </div>
@@ -138,7 +143,12 @@ $data = printData($sql);
                             KTP Pembantu
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="KTP_Pembantu" name = "KTPPembantu" placeholder="ex: 2 kamar">
+                            <select id="KTP_Pembantu" name="KTP_pembantu" class="form-select">
+                                <option selected></option>
+                            <?php foreach ($dataPembantu as $row): ?>
+                                    <option value="1"><?= $row['KTP_pembantu'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="mb-3 row mt-4">
@@ -194,7 +204,7 @@ $data = printData($sql);
                                 Lantai
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="lantai_kamar" name="lantai_kamar" placeholder="ex: 01932173242846">
+                                <input type="text" class="form-control" id="lantai_kamar" name="lantai_kamar" placeholder="ex: 2">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -214,13 +224,18 @@ $data = printData($sql);
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="Nama" class="col-sm-2 col-form-label">
-                                KTP Pembantu
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="KTP_Pembantu" name="KTPPembantu" placeholder="ex: 01932173242846">
-                            </div>
+                        <label for="KTP_Pembantu" class="col-sm-2 col-form-label">
+                            KTP Pembantu
+                        </label>
+                        <div class="col-sm-10">
+                            <select id="KTP_Pembantu" name="KTP_pembantu" class="form-select">
+                                <option selected></option>
+                            <?php foreach ($dataPembantu as $row): ?>
+                                    <option value="1"><?= $row['KTP_pembantu'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
+                    </div>
                         <div class="mb-3 row mt-4">
                             <div class="col">
                             <?php
@@ -334,20 +349,29 @@ $data = printData($sql);
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="Alamat" class="col-sm-2 col-form-label">
-                                Kode Transaksi
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="kode_transaksi" name="kode_transaksi" placeholder="ex: 2 kamar">
-                            </div>
+                        <label for="Kode_transaksi" class="col-sm-2 col-form-label">
+                            Kode Transaksi
+                        </label>
+                        <div class="col-sm-10">
+                            <select id="Kode_transaksi" name="kode_transaksi" class="form-select">
+                                <option selected></option>
+                            <?php foreach ($databayartanggungan as $row): ?>
+                                    <option value="1"><?= $row['kode_transaksi'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="Alamat" class="col-sm-2 col-form-label">
-                                No. Kamar
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="no_kamar" name="no_kamar" placeholder="ex: 2 kamar">
-                            </div>
+                        <label for="no_kamar" class="col-sm-2 col-form-label">
+                            No Kamar
+                        </label>
+                        <div class="col-sm-10">
+                            <select id="no_kamar" name="no_kamar" class="form-select">
+                                <option selected></option>
+                            <?php foreach ($databayartanggungan as $row): ?>
+                                    <option value="1"><?= $row['no_kamar'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="mb-3 row mt-4">
                             <div class="col">
