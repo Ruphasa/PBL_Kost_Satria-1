@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bayartanggungan` (
-  `kode_tanggungan` varchar(30) NOT NULL,
+  `kode_tanggungan` char(10) NOT NULL,
   `tipe_tanggungan` varchar(10) DEFAULT NULL,
-  `kode_transaksi` varchar(30) DEFAULT NULL,
-  `no_kamar` int(30) DEFAULT NULL
+  `kode_transaksi` char(10) DEFAULT NULL,
+  `no_kamar` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -48,12 +48,12 @@ INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe_tanggungan`, `kode_trans
 --
 
 CREATE TABLE `kamar` (
-  `no_kamar` int(30) NOT NULL,
+  `no_kamar` int NOT NULL,
   `tipe_kamar` enum('VIP','VIP Non AC','Standar') DEFAULT NULL,
   `lantai_kamar` enum('1','2','3') DEFAULT NULL,
-  `harga_kamar` int(11) DEFAULT NULL,
+  `harga_kamar` int DEFAULT NULL,
   `alamat_kamar` varchar(100) DEFAULT NULL,
-  `KTP_pembantu` varchar(15) DEFAULT NULL
+  `KTP_pembantu` char(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -70,7 +70,7 @@ INSERT INTO `kamar` (`no_kamar`, `tipe_kamar`, `lantai_kamar`, `harga_kamar`, `a
 --
 
 CREATE TABLE `menyewa` (
-  `kode_transaksi` varchar(30) DEFAULT NULL,
+  `kode_transaksi` char(10) DEFAULT NULL,
   `no_kamar` int(30) DEFAULT NULL,
   `tanggalmasuk` date DEFAULT NULL,
   `tanggalkeluar` date DEFAULT NULL
@@ -90,7 +90,7 @@ INSERT INTO `menyewa` (`kode_transaksi`, `no_kamar`, `tanggalmasuk`, `tanggalkel
 --
 
 CREATE TABLE `pembantu` (
-  `KTP_pembantu` varchar(15) NOT NULL,
+  `KTP_pembantu` char(16) NOT NULL,
   `alamat_kos` varchar(100) DEFAULT NULL,
   `no_hp_pembantu` varchar(15) DEFAULT NULL,
   `nama_pembantu` varchar(50) DEFAULT NULL
@@ -110,7 +110,7 @@ INSERT INTO `pembantu` (`KTP_pembantu`, `alamat_kos`, `no_hp_pembantu`, `nama_pe
 --
 
 CREATE TABLE `penyewa` (
-  `KTP_Penyewa` varchar(15) NOT NULL,
+  `KTP_Penyewa` char(16) NOT NULL,
   `nama_penyewa` varchar(50) DEFAULT NULL,
   `alamat_penyewa` varchar(100) DEFAULT NULL,
   `jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL,
@@ -131,10 +131,10 @@ INSERT INTO `penyewa` (`KTP_Penyewa`, `nama_penyewa`, `alamat_penyewa`, `jenis_k
 --
 
 CREATE TABLE `transaksi` (
-  `kode_transaksi` varchar(30) NOT NULL,
+  `kode_transaksi` char(10) NOT NULL,
   `quantity` varchar(30) DEFAULT NULL,
-  `KTP_Penyewa` varchar(15) DEFAULT NULL,
-  `KTP_pembantu` varchar(15) DEFAULT NULL
+  `KTP_Penyewa` char(16) DEFAULT NULL,
+  `KTP_pembantu` char(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

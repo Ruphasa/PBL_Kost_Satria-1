@@ -26,33 +26,28 @@
             require_once 'backend.php';
             $KTP_Penyewa = $_POST["NKTP"];
             $Nama_Penyewa = $_POST["Nama"];
+            $Alamat_Penyewa = $_POST["Alamat"];
             $Jenis_Kelamin_Penyewa = $_POST["Jenis_Kelamin"];
             $No_Hp_Penyewa = $_POST["No_Hp"];
             $sql = "INSERT INTO Penyewa (
-        KTP_Penyewa, Alamat_Penyewa, Jenis_Kelamin, No_Hp_Penyewa
+        KTP_Penyewa, nama_penyewa, Alamat_Penyewa, Jenis_Kelamin, No_Hp_Penyewa
         ) VALUES (
-            '$KTP_Penyewa', '$Nama_Penyewa', '$Jenis_Kelamin_Penyewa', '$No_Hp_Penyewa'
+            '$KTP_Penyewa', '$Nama_Penyewa','$Alamat_Penyewa', '$Jenis_Kelamin_Penyewa', '$No_Hp_Penyewa'
             )";
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='penyewa.php'>[kembali]</a>";
         } else if ($_POST['aksi1'] == "edit") {
             echo "Edit Data <a href='penyewa.php'>[kembali]</a>";
         }
-    } else if (isset($_GET['hapuspenyewa'])) {
-        require_once 'backend.php';
-        $KTP_Penyewa = $_POST["NKTP"];
-        $sql = "DELETE FROM Penyewa WHERE KTP_Penyewa = '$KTP_Penyewa'";
-        mysqli_query($conn, $sql);
-        echo "Hapus Data <a href='penyewa.php'>[kembali]</a>";
-    }else if (isset($_POST['aksi2'])) {
+    } else if (isset($_POST['aksi2'])) {
         if ($_POST['aksi2'] == "add") {
             require_once 'backend.php';
             $kode_transaksi = $_POST["kode_transaksi"];
             $Quantity = $_POST["Quantity"];
-            $KTP_Penyewa = $_POST["KTPPenyewa"];
-            $KTP_Pembantu = $_POST["KTPPembantu"];
+            $KTP_Penyewa = $_POST["NKTP"];
+            $KTP_Pembantu = $_POST["KTP_pembantu"];
             $sql = "INSERT INTO transaksi (
-        kode_transaksi, Quantity, KTP_Penyewa, KTP_Pembantu
+        kode_transaksi, Quantity, KTP_Penyewa, KTP_pembantu
         ) VALUES (
             '$kode_transaksi', '$Quantity', '$KTP_Penyewa', '$KTP_Pembantu'
             )";
@@ -60,12 +55,6 @@
             echo "Tambah Data <a href='transaksi.php'>[kembali]</a>";
         } else if ($_POST['aksi2'] == "edit") {
             echo "Edit Data <a href='transaksi.php'>[kembali]</a>";
-        } else if (isset($_POST['hapustransaksi'])) {
-            require_once 'backend.php';
-            $kode_transaksi = $_GET['kode_transaksi'];
-            $sql = "DELETE FROM transaksi WHERE kode_tanggungan = '$kode_transaksi'";
-            mysqli_query($conn, $sql);
-            echo "Hapus Data <a href='transaksi.php'>[kembali]</a>";
         }
     } else if (isset($_POST['aksi3'])) {
         if ($_POST['aksi3'] == "add") {
@@ -75,45 +64,33 @@
             $lantai_kamar = $_POST["lantai_kamar"];
             $harga_kamar = $_POST["harga_kamar"];
             $alamat_kamar = $_POST["alamat_kamar"];
-            $KTP_Pembantu = $_POST["KTPPembantu"];
+            $KTP_Pembantu = $_POST["KTP_pembantu"];
             $sql = "INSERT INTO kamar (
         no_kamar, tipe_kamar, lantai_kamar, harga_kamar, alamat_kamar, KTP_Pembantu
         ) VALUES (
-            '$no_kamar',' $tipe_kamar', '$lantai_kamar', '$harga_kamar', '$alamat_kamar', '$KTP_Pembantu'
+            '$no_kamar','$tipe_kamar', '$lantai_kamar', '$harga_kamar', '$alamat_kamar', '$KTP_Pembantu'
             )";
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='kamar.php'>[kembali]</a>";
         } else if ($_POST['aksi1'] == "edit") {
             echo "Edit Data <a href='kamar.php'>[kembali]</a>";
-        } else if (isset($_POST['hapuskamar'])) {
-            require_once 'backend.php';
-            $no_kamar = $_GET['no_kamar'];
-            $sql = "DELETE FROM kamar WHERE no_kamar = '$no_kamar'";
-            mysqli_query($conn, $sql);
-            echo "Hapus Data <a href='tanggungan.php'>[kembali]</a>";
-        }
+        } 
     } else if (isset($_POST['aksi4'])) {
         if ($_POST['aksi4'] == "add") {
             require_once 'backend.php';
-            $KTP_Penyewa = $_POST["NKTP"];
+            $KTP_pembantu = $_POST["NKTP"];
             $Nama_pembantu = $_POST["nama"];
             $Alamat = $_POST["AlamatKos"];
             $No_Hp_Pembantu = $_POST["no_hp"];
             $sql = "INSERT INTO pembantu (
-        KTP_Pembantu, Alamat_kos, No_Hp_Pembantu
+        KTP_Pembantu, nama_pembantu, Alamat_kos, No_Hp_Pembantu
         ) VALUES (
-            '$KTP_Penyewa', '$Alamat', '$No_Hp_Pembantu'
+            '$KTP_pembantu','$Nama_pembantu', '$Alamat', '$No_Hp_Pembantu'
             )";
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='pembantu.php'>[kembali]</a>";
         } else if ($_POST['aksi4'] == "edit") {
             echo "Edit Data <a href='pembantu.php'>[kembali]</a>";
-        } else if (isset($_POST['hapuspembantu'])) {
-            require_once 'backend.php';
-            $KTP_pembantu = $_GET['KTP_pembantu'];
-            $sql = "DELETE FROM pembantu WHERE KTP_pembantu = '$KTP_pembantu'";
-            mysqli_query($conn, $sql);
-            echo "Hapus Data <a href='tanggungan.php'>[kembali]</a>";
         }
     } else if (isset($_POST['aksi5'])) {
         if ($_POST['aksi5'] == "add") {
@@ -132,13 +109,7 @@
         } else if ($_POST['aksi5'] == "edit") {
             echo "Edit Data <a href='tanggungan.php'>[kembali]</a>";
         }
-    } else if (isset($_POST['hapus=5'])) {
-        require_once 'backend.php';
-        $kode_tanggungan = $_GET['kode_tanggungan'];
-        $sql = "DELETE FROM bayartanggungan WHERE kode_tanggungan = '$kode_tanggungan'";
-        mysqli_query($conn, $sql);
-        echo "Hapus Data <a href='tanggungan.php'>[kembali]</a>";
-    }
+    } 
     ?>
 </body>
 
