@@ -1,3 +1,8 @@
+<?php
+require 'backend.php';
+$sql = "SELECT * FROM penyewa";
+$data = printData($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,7 +125,12 @@
                             KTP Penyewa
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="KTP_Penyewa" name = "KTPPenyewa" placeholder="ex: 2 kamar">
+                        <select id="KTP_Penyewa" name="NKTP" class="form-select">
+                            <option selected></option>
+                        <?php foreach ($data as $row): ?>
+                                <option value="1"<?= $row ?>"><?= $row['KTP_Penyewa'] ?></option>
+                        <?php endforeach; ?>
+                        </select>
                         </div>
                     </div>
                     <div class="mb-3 row">
