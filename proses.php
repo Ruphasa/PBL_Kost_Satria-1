@@ -97,14 +97,13 @@
     } else if (isset($_POST['aksi5'])) {
         if ($_POST['aksi5'] == "add") {
             require_once 'backend.php';
-            $kode_tanggungan = $_POST["kode_tanggungan"];
             $tipe_tanggungan = $_POST["tipe_tanggungan"];
             $kode_transaksi = $_POST["kode_transaksi"];
             $no_kamar = $_POST["no_kamar"];
             $sql = "INSERT INTO bayartanggungan (
-        kode_tanggungan, tipe_tanggungan, kode_transaksi, no_kamar
+        tipe_tanggungan, kode_transaksi, no_kamar
         ) VALUES (
-            '$kode_tanggungan', '$tipe_tanggungan', '$kode_transaksi', '$no_kamar'
+            '$tipe_tanggungan', '$kode_transaksi', '$no_kamar'
             )";
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='tanggungan.php'>[kembali]</a>";
