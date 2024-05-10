@@ -32,7 +32,7 @@
                         <figcaption class="blockquote-footer">
                     Managed by <cite title="Source Title">handsome people</cite>
                 </figcaption>
-                <a href="kelola.php?tambahtanggungan=1" type="button" class="btn btn-primary mb-3">
+                <a href="kelola.php?tambahtanggungan" type="button" class="btn btn-primary mb-3">
                     <i class="fa fa-plus"></i>
                     Tambah Data
                 </a>
@@ -55,11 +55,11 @@
                     <td><?= $row['kode_transaksi'] ?></td>
                     <td><?= $row['no_kamar'] ?></td>
                             <td>
-                                <a href="kelola.php?ubah5=1" type="button" class="btn btn-success btn-sm">
+                                <a href="kelola.php?ubah5" type="button" class="btn btn-success btn-sm">
                                     <i class="fa fa-pencil"></i>
                                     Ubah
                                 </a>
-                                <a href="proses.php?hapus5=1" type="button" class="btn btn-danger btn-sm">
+                                <a href="proses.php?hapus=5" type="button" class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash"></i>
                                     Hapus
                                 </a>
