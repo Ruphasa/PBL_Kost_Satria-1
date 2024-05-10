@@ -37,6 +37,8 @@
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='penyewa.php'>[kembali]</a>";
         } else if ($_POST['aksi1'] == "edit") {
+            require_once 'backend.php';
+            
             echo "Edit Data <a href='penyewa.php'>[kembali]</a>";
         }
     } else if (isset($_POST['aksi2'])) {

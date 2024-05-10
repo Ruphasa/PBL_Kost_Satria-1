@@ -59,29 +59,29 @@
                                 <i class="fa fa-pencil"></i>
                                 Ubah
                             </a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" onclick="changeVariable4(<?= $row['kode_transaksi']?>)" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal4">
                             Hapus
                             </button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ingin menghapus Data dengan kode : <?= $row['kode_transaksi']?> ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <a href="proses.php?hapus2=1" type="button" class="btn btn-primary">Save changes</a>
-                                </div>
-                                </div>
-                        </div>
-                        </div>
                         </td>
-                        </tr>
-                        <?php endforeach; ?>
+                    </tr>
+                    <?php endforeach; ?>
+                    <div class="modal fade" id="deleteModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ingin menghapus Data dengan kode : <span id="deleteVariable4"></span> ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="hapus.php?hapustransaksi" type="button" class="btn btn-primary">Save changes</a>
+                        </div>
+                        </div>
+                </div>
+                </div>
                         <tr class="align-bottom">
                         </tr>
                     </tbody>
@@ -89,5 +89,6 @@
             </div>
         </figure>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
