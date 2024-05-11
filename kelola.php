@@ -111,7 +111,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
         ?>
             <div class="container">
                 <form method="POST" action="proses.php">
-                    <div class="mb-3 row">
+                    <!-- <div class="mb-3 row">
                         <label for="kode_transaksi" class="col-sm-2 col-form-label">
                             Kode Transaksi
                         </label>
@@ -119,7 +119,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
                             <input type="text" class="form-control" id="kode_transaksi" name="kode_transaksi"
                                 placeholder="TK0101">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="mb-3 row">
                         <label for="Quantity" class="col-sm-2 col-form-label">
                             Quantity

@@ -44,14 +44,13 @@
     } else if (isset($_POST['aksi2'])) {
         if ($_POST['aksi2'] == "add") {
             require_once 'backend.php';
-            $kode_transaksi = $_POST["kode_transaksi"];
             $Quantity = $_POST["Quantity"];
             $KTP_Penyewa = $_POST["NKTP"];
             $KTP_Pembantu = $_POST["KTP_pembantu"];
             $sql = "INSERT INTO transaksi (
-        kode_transaksi, Quantity, KTP_Penyewa, KTP_pembantu
+             Quantity, KTP_Penyewa, KTP_pembantu
         ) VALUES (
-            '$kode_transaksi', '$Quantity', '$KTP_Penyewa', '$KTP_Pembantu'
+             '$Quantity', '$KTP_Penyewa', '$KTP_Pembantu'
             )";
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='transaksi.php'>[kembali]</a>";
