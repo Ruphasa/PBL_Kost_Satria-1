@@ -351,7 +351,7 @@ $dataKamar = printData($sqlkamar);
                             <?php
                             } else {
                                 ?>
-                                        <button type="submit" name="aksi4" value="edit" class="btn btn-primary">
+                                        <button href="edit.php" type="submit" name="aksi4" value="edit" class="btn btn-primary">
                                             <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                             Simpan Perubahan
                                         </button>
