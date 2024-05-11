@@ -231,7 +231,7 @@ $dataKamar = printData($sqlkamar);
                                 Harga
                             </label>
                             <div class="col-sm-10">
-                                <select id="harga_kamar" name="harga_kamar" class="form-select">
+                                <select id="harga_kamar" name="harga_kamar" class="form-select" onchange="updateType()">
                                     <option selected>0</option>
                                     <option value='1000000'>1.000.000</option>
                                     <option value='1500000'>1.500.000</option>
@@ -255,6 +255,22 @@ $dataKamar = printData($sqlkamar);
                                 }
                             }
                             $('#tipe_kamar').on('change', updatePrice);
+                        </script>
+                        <script>
+                            function updateType() {
+                                const priceSelect = document.getElementById('harga_kamar').value;
+                                const roomType = document.getElementById('tipe_kamar');
+                                    if (priceSelect === '1500000') {
+                                     roomType.value = 'VIP'; // Set price to 1,500,000 for VIP
+                                    } else if (priceSelect === '1200000') {
+                                        roomType.value = 'VIP Non AC'; // Set price to 1,200,000 for VIP Non AC
+                                    } else if (priceSelect === '1000000') {
+                                        roomType.value = 'Standar'; // Set price to 1,000,000 for Standar
+                                    }else {
+                                        roomType.value = ''; // Reset price to 0 for non-VIP options
+                                }
+                            }
+                            $('#harga_kamar').on('change', updateType);
                         </script>
                         <div class="mb-3 row">
                             <label for="Nama" class="col-sm-2 col-form-label">
