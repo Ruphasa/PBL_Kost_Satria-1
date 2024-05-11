@@ -21,6 +21,8 @@ $dataKamar = printData($sqlkamar);
     <link rel="stylesheet" href="font/css/font-awesome.min.css">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 </head>
 
 <body>
@@ -351,7 +353,7 @@ $dataKamar = printData($sqlkamar);
                             <?php
                             } else {
                                 ?>
-                                        <button href="edit.php" type="submit" name="aksi4" value="edit" class="btn btn-primary">
+                                        <button type="submit" name="aksi4" value="edit" class="btn btn-primary">
                                             <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                             Simpan Perubahan
                                         </button>
@@ -367,7 +369,7 @@ $dataKamar = printData($sqlkamar);
                         </form>
                     </div>
         <?php
-    } else if (isset($_GET['tambahtanggungan']) || isset($_GET['ubah4'])) {
+    } else if (isset($_GET['tambahtanggungan']) || isset($_GET['ubah5'])) {
         ?>
                         <div class="container">
                             <form method="POST" action="proses.php">
@@ -438,6 +440,109 @@ $dataKamar = printData($sqlkamar);
                                 }
                                 ?>
                                             <a href="tanggungan.php" type="button" class="btn btn-danger">
+                                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                                batal
+                                            </a>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+        <?php
+    } else if (isset($_GET['tambahsewa']) || isset($_GET['ubah6'])) {
+        ?>
+                        <div class="container">
+                            <form method="POST" action="proses.php">
+                                <div class="mb-3 row">
+                                    <label for="Alamat" class="col-sm-2 col-form-label">
+                                        Kode Transaksi
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select id="Kode_transaksi" name="kode_transaksi" class="form-select">
+                                            <option selected></option>
+                            <?php foreach ($dataTransaksi as $row): ?>
+                                                <option value="<?= $row['kode_transaksi'] ?>"><?= $row['kode_transaksi'] ?></option>
+                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="no_kamar" class="col-sm-2 col-form-label">
+                                        No Kamar
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select id="no_kamar" name="no_kamar" class="form-select">
+                                            <option selected></option>
+                            <?php foreach ($dataKamar as $row): ?>
+                                                <option value="<?= $row['no_kamar'] ?>"><?= $row['no_kamar'] ?></option>
+                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 row mt-4">
+                                        <div class="col">
+                            <form>
+                            <div class="mb-3 row">
+                                <label for="date" class="col-sm-2 col-form-label">
+                                    tanggal masuk
+                                </label>
+                                <div class="col-sm-10">
+                                    <div class="input-group date" id="datepicker1">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-white">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datepicker1').datepicker();
+                                });
+                            </script>
+
+                            <form>
+                            <div class="mb-3 row">
+                                <label for="date" class="col-sm-2 col-form-label">
+                                    tanggal keluar
+                                </label>
+                                <div class="col-sm-10">
+                                    <div class="input-group date" id="datepicker2">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-white">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                                            
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datepicker2').datepicker();
+                                });
+                            </script>
+                                <?php
+                                if (isset($_GET['tambahsewa'])) {
+                                    ?>
+                                                <button type="submit" name="aksi6" value="add" class="btn btn-primary">
+                                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                    Tambahkan
+                                                </button>
+                                <?php
+                                } else {
+                                    ?>
+                                                <button type="submit" name="aksi6" value="edit" class="btn btn-primary">
+                                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                    Simpan Perubahan
+                                                </button>
+                                <?php
+                                }
+                                ?>
+                                            <a href="menyewa.php" type="button" class="btn btn-danger">
                                                 <i class="fa fa-reply" aria-hidden="true"></i>
                                                 batal
                                             </a>

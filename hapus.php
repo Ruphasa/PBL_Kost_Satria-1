@@ -29,5 +29,11 @@ if (isset($_GET['hapuskamar'])) {
     $sql = "DELETE FROM bayartanggungan WHERE kode_tanggungan = '$kode_tanggungan'";
     mysqli_query($conn, $sql);
     echo "Hapus Data <a href='tanggungan.php'>[kembali]</a>";
+} else if (isset($_GET['hapussewa'])) {
+    require_once 'backend.php';
+    $kode_tanggungan = $_GET['hapussewa'];
+    $sql = "DELETE FROM bayartanggungan WHERE kode_tanggungan = '$kode_tanggungan'";
+    mysqli_query($conn, $sql);
+    echo "Hapus Data <a href='menyewa.php'>[kembali]</a>";
 }
 ?>
