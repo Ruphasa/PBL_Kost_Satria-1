@@ -13,7 +13,7 @@ if (isset($_GET['hapuskamar'])) {
     echo "Hapus Data <a href='pembantu.php'>[kembali]</a>";
 } else if (isset($_GET['hapustransaksi'])) {
     require_once 'backend.php';
-    $kode_transaksi = $_GET['kode_transaksi'];
+    $kode_transaksi = $_GET['hapustransaksi'];
     $sql = "DELETE FROM transaksi WHERE kode_transaksi = '$kode_transaksi'";
     mysqli_query($conn, $sql);
     echo "Hapus Data <a href='transaksi.php'>[kembali]</a>";
@@ -23,7 +23,7 @@ if (isset($_GET['hapuskamar'])) {
     $sql = "DELETE FROM Penyewa WHERE KTP_Penyewa = '$KTP_Penyewa'";
     mysqli_query($conn, $sql);
     echo "Hapus Data <a href='penyewa.php'>[kembali]</a>";
-} else if (isset($_GET['hapus=5'])) {
+} else if (isset($_GET['hapustanggungan'])) {
     require_once 'backend.php';
     $kode_tanggungan = $_GET['hapustanggungan'];
     $sql = "DELETE FROM bayartanggungan WHERE kode_tanggungan = '$kode_tanggungan'";

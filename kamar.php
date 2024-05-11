@@ -63,7 +63,7 @@
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>
-                        <button type="button" onclick="changeVariable3(<?= $row['no_kamar']?>)" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal3">
+                        <button type="button" onclick="changeVariable3('<?= $row['no_kamar']?>')" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal3">
                         Hapus
                         </button>
                     </td>

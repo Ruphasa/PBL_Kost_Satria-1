@@ -59,7 +59,7 @@
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>
-                        <button type="button" onclick="changeVariable2(<?= $row['KTP_pembantu']?>)"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <button type="button" onclick="changeVariable2('<?= $row['KTP_pembantu']?>')"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                         Hapus
                         </button>
                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

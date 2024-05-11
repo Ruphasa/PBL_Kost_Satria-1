@@ -1,7 +1,7 @@
-KTP_Penyewa = -1;
-KTP_pembantu = -1;
-no_kamar = -1;
-kode_transaksi = -1;
+KTP_Penyewa = '';
+KTP_pembantu = '';
+no_kamar = '';
+kode_transaksi = "A";
 kode_tanggungan = -1;
 function changeVariable(data) {
     KTP_Penyewa = data;
@@ -31,7 +31,7 @@ function changeVariable4(data) {
     document.getElementById("kode_transaksi").href = "hapus.php?hapustransaksi=" + kode_transaksi;
 }
 function changeVariable5(data) {
-    kode_tanggungan = data;
+    kode_tanggungan = data.toString();
     console.log("Variable value changed to: " + kode_tanggungan);
     document.getElementById("deleteVariable5").innerText = kode_tanggungan;
     document.getElementById("kode_tanggungan").href = "hapus.php?hapustanggungan=" + kode_tanggungan;

@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bayartanggungan` (
-  `kode_tanggungan` char(10) NOT NULL,
+  `kode_tanggungan` int NOT NULL,
   `tipe_tanggungan` varchar(10) DEFAULT NULL,
   `kode_transaksi` char(10) DEFAULT NULL,
   `no_kamar` int DEFAULT NULL

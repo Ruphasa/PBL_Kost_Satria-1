@@ -63,7 +63,7 @@ $data = printData($sql);
                                         <i class="fa fa-pencil"></i>
                                         Ubah
                                     </a>
-                                    <button type="button" onclick="changeVariable(<?= $row['KTP_Penyewa']?>)" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <button type="button" onclick="changeVariable('<?= $row['KTP_Penyewa']?>')" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                         Hapus
                                     </button>
                                 </td>

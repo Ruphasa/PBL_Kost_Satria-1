@@ -59,7 +59,7 @@
                                 <i class="fa fa-pencil"></i>
                                 Ubah
                             </a>
-                            <button type="button" onclick="changeVariable4(<?= $row['kode_transaksi']?>)" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal4">
+                            <button type="button" onclick="changeVariable4('<?= $row['kode_transaksi']?>')" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal4">
                             Hapus
                             </button>
                         </td>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="hapus.php?hapustransaksi" type="button" class="btn btn-primary">Save changes</a>
+                            <a href="hapus.php?hapustransaksi" id="kode_transaksi" type="button" class="btn btn-primary">Save changes</a>
                         </div>
                         </div>
                 </div>
