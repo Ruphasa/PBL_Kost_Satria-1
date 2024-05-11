@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bayartanggungan` (
   `kode_tanggungan` int NOT NULL,
   `tipe_tanggungan` varchar(10) DEFAULT NULL,
-  `kode_transaksi` char(10) DEFAULT NULL,
+  `kode_transaksi` int(11) DEFAULT NULL,
   `no_kamar` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -70,7 +70,7 @@ INSERT INTO `kamar` (`no_kamar`, `tipe_kamar`, `lantai_kamar`, `harga_kamar`, `a
 --
 
 CREATE TABLE `menyewa` (
-  `kode_transaksi` char(10) DEFAULT NULL,
+  `kode_transaksi` int DEFAULT NULL,
   `no_kamar` int(30) DEFAULT NULL,
   `tanggalmasuk` date DEFAULT NULL,
   `tanggalkeluar` date DEFAULT NULL
@@ -131,7 +131,7 @@ INSERT INTO `penyewa` (`KTP_Penyewa`, `nama_penyewa`, `alamat_penyewa`, `jenis_k
 --
 
 CREATE TABLE `transaksi` (
-  `kode_transaksi` char(10) NOT NULL,
+  `kode_transaksi` int NOT NULL,
   `quantity` varchar(30) DEFAULT NULL,
   `KTP_Penyewa` char(16) DEFAULT NULL,
   `KTP_pembantu` char(16) DEFAULT NULL
