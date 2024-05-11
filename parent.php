@@ -45,15 +45,21 @@
     </div>
     <div style="margin-top: 100px;">    
         <a href="pembantu.php">
-            <button style="width: 200px; height: 200px; margin-left: 450px; background-color: rgb(201, 100, 255); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 300px; background-color: rgb(201, 100, 255); border-radius: 25px;">
                 <img src="img/waiter.png" class="img-fluid">
                 <p style="margin-top: 10px; font-size: x-large;"><b>DATA PEMBANTU</b></p>
             </button>
         </a>
         <a href="tanggungan.php">
-            <button style="width: 200px; height: 200px; margin-left: 200px; background-color: rgb(255, 100, 157); border-radius: 25px;">
+            <button style="width: 200px; height: 200px; margin-left: 150px; background-color: rgb(255, 100, 157); border-radius: 25px;">
                 <img src="img/dependencies.png" class="img-fluid">
                 <p style="margin-top: 10px; font-size: x-large;"><b>DATA TANGGUNGAN</b></p>
+            </button>
+        </a>
+        <a href="menyewa.php">
+            <button style="width: 200px; height: 200px; margin-left: 150px; background-color: bisque; border-radius: 25px;">
+                <img src="img/dependencies.png" class="img-fluid">
+                <p style="margin-top: 10px; font-size: x-large;"><b>DATA SEWA</b></p>
             </button>
         </a>
     </div>
