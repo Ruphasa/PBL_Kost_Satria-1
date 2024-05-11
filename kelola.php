@@ -3,9 +3,13 @@ require 'backend.php';
 $sqlPenyewa = "SELECT * FROM penyewa";
 $sqlPembantu = "SELECT * FROM pembantu";
 $sqlbayartanggungan = "SELECT * FROM bayartanggungan";
+$sqltransaksi = "SELECT * FROM transaksi";
+$sqlkamar = "SELECT * FROM kamar";
 $dataPenyewa = printData($sqlPenyewa);
 $dataPembantu = printData($sqlPembantu);
 $databayartanggungan = printData($sqlbayartanggungan);
+$dataTransaksi = printData($sqltransaksi);
+$dataKamar = printData($sqlkamar);
 ?>
 <!DOCTYPE html>
 <html>
@@ -234,17 +238,17 @@ $databayartanggungan = printData($sqlbayartanggungan);
                             </div>
                         </div>
                         <script>
-                             function updatePrice() {
+                            function updatePrice() {
                                 const roomType = document.getElementById('tipe_kamar').value;
                                 const priceSelect = document.getElementById('harga_kamar');
 
-                                     if (roomType === 'VIP') {
+                                    if (roomType === 'VIP') {
                                      priceSelect.value = '1500000'; // Set price to 1,500,000 for VIP
-                                     } else if (roomType === 'VIP Non AC') {
+                                    } else if (roomType === 'VIP Non AC') {
                                         priceSelect.value = '1200000'; // Set price to 1,200,000 for VIP Non AC
-                                     } else if (roomType === 'Standar') {
+                                    } else if (roomType === 'Standar') {
                                         priceSelect.value = '1000000'; // Set price to 1,000,000 for Standar
-                                     }else {
+                                    }else {
                                         priceSelect.value = '0'; // Reset price to 0 for non-VIP options
                                 }
                             }
@@ -396,7 +400,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
                                     <div class="col-sm-10">
                                         <select id="Kode_transaksi" name="kode_transaksi" class="form-select">
                                             <option selected></option>
-                            <?php foreach ($databayartanggungan as $row): ?>
+                            <?php foreach ($dataTransaksi as $row): ?>
                                                 <option value="<?= $row['kode_transaksi'] ?>"><?= $row['kode_transaksi'] ?></option>
                             <?php endforeach; ?>
                                         </select>
@@ -409,7 +413,7 @@ $databayartanggungan = printData($sqlbayartanggungan);
                                     <div class="col-sm-10">
                                         <select id="no_kamar" name="no_kamar" class="form-select">
                                             <option selected></option>
-                            <?php foreach ($databayartanggungan as $row): ?>
+                            <?php foreach ($dataKamar as $row): ?>
                                                 <option value="<?= $row['no_kamar'] ?>"><?= $row['no_kamar'] ?></option>
                             <?php endforeach; ?>
                                         </select>
