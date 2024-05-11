@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 02:33 PM
+-- Generation Time: May 11, 2024 at 07:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bayartanggungan` (
-  `kode_tanggungan` int NOT NULL,
+  `kode_tanggungan` int(11) NOT NULL,
   `tipe_tanggungan` varchar(10) DEFAULT NULL,
   `kode_transaksi` int(11) DEFAULT NULL,
-  `no_kamar` int DEFAULT NULL
+  `no_kamar` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `bayartanggungan` (
 --
 
 INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe_tanggungan`, `kode_transaksi`, `no_kamar`) VALUES
-('01', 'Listrik', '01', 3);
+(1, 'Listrik', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -48,10 +48,10 @@ INSERT INTO `bayartanggungan` (`kode_tanggungan`, `tipe_tanggungan`, `kode_trans
 --
 
 CREATE TABLE `kamar` (
-  `no_kamar` int NOT NULL,
+  `no_kamar` int(11) NOT NULL,
   `tipe_kamar` enum('VIP','VIP Non AC','Standar') DEFAULT NULL,
   `lantai_kamar` enum('1','2','3') DEFAULT NULL,
-  `harga_kamar` int DEFAULT NULL,
+  `harga_kamar` int(11) DEFAULT NULL,
   `alamat_kamar` varchar(100) DEFAULT NULL,
   `KTP_pembantu` char(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -70,7 +70,7 @@ INSERT INTO `kamar` (`no_kamar`, `tipe_kamar`, `lantai_kamar`, `harga_kamar`, `a
 --
 
 CREATE TABLE `menyewa` (
-  `kode_transaksi` int DEFAULT NULL,
+  `kode_transaksi` int(11) DEFAULT NULL,
   `no_kamar` int(30) DEFAULT NULL,
   `tanggalmasuk` date DEFAULT NULL,
   `tanggalkeluar` date DEFAULT NULL
@@ -81,7 +81,7 @@ CREATE TABLE `menyewa` (
 --
 
 INSERT INTO `menyewa` (`kode_transaksi`, `no_kamar`, `tanggalmasuk`, `tanggalkeluar`) VALUES
-('01', 3, '2024-05-01', '2024-11-01');
+(1, 3, '2024-05-01', '2024-11-01');
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,7 @@ INSERT INTO `penyewa` (`KTP_Penyewa`, `nama_penyewa`, `alamat_penyewa`, `jenis_k
 --
 
 CREATE TABLE `transaksi` (
-  `kode_transaksi` int NOT NULL,
+  `kode_transaksi` int(11) NOT NULL,
   `quantity` varchar(30) DEFAULT NULL,
   `KTP_Penyewa` char(16) DEFAULT NULL,
   `KTP_pembantu` char(16) DEFAULT NULL
@@ -142,7 +142,8 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`kode_transaksi`, `quantity`, `KTP_Penyewa`, `KTP_pembantu`) VALUES
-('01', '1', '123456789', '987654321');
+(1, '1', '123456789', '987654321'),
+(3, '2', '123456789', '987654321');
 
 --
 -- Indexes for dumped tables
@@ -189,6 +190,22 @@ ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`kode_transaksi`),
   ADD KEY `KTP_Penyewa` (`KTP_Penyewa`),
   ADD KEY `KTP_pembantu` (`KTP_pembantu`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bayartanggungan`
+--
+ALTER TABLE `bayartanggungan`
+  MODIFY `kode_tanggungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `kode_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
