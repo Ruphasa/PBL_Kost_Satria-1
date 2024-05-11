@@ -166,17 +166,21 @@
             mysqli_query($conn, $sql);
             echo "Edit Data <a href='tanggungan.php'>[kembali]</a>";
         }
-    }else if (isset($_POST['aksi6'])) {
+    } else if (isset($_POST['aksi6'])) {
         if ($_POST['aksi6'] == "add") {
             require_once 'backend.php';
             $kode_transaksi = $_POST["kode_transaksi"];
             $no_kamar = $_POST["no_kamar"];
-            $tanggalmasuk=$_POST["tanggalmasuk"];
-            $tanggalkeluar=$_POST["tanggalkeluar"];
+            $tanggalmasuk = $_POST['tanggalmasuk']; // Assuming the date is submitted via POST
+            $datemasuk = DateTime::createFromFormat('d/m/Y', $tanggalmasuk); // Assuming the date format is dd/mm/yyyy
+            $formattedDateMasuk = $datemasuk->format('Y-m-d'); // Convert the date to the format that your SQL database accepts (yyyy-mm-dd)
+            $tanggalkeluar = $_POST['tanggalkeluar'];
+            $datekeluar = DateTime::createFromFormat('d/m/Y', $tanggalkeluar); // Assuming the date format is dd/mm/yyyy
+            $formattedDateKeluar = $datekeluar->format('Y-m-d');
             $sql = "INSERT INTO menyewa (
         kode_transaksi, no_kamar, tanggalmasuk, tanggalkeluar
         ) VALUES (
-            '$kode_transaksi', '$no_kamar', '$tanggalmasuk', '$tanggalkeluar'
+            '$kode_transaksi', '$no_kamar', '$formattedDateMasuk', '$formattedDateKeluar'
             )";
             mysqli_query($conn, $sql);
             echo "Tambah Data <a href='menyewa.php'>[kembali]</a>";
@@ -184,12 +188,16 @@
             require_once 'backend.php';
             $kode_transaksi = $_POST["kode_transaksi"];
             $no_kamar = $_POST["no_kamar"];
-            $tanggalmasuk=$_POST["tanggalmasuk"];
-            $tanggalkeluar=$_POST["tanggalkeluar"];
+            $tanggalmasuk = $_POST["tanggalmasuk"]; // Assuming the date is submitted via POST
+            $datemasuk = DateTime::createFromFormat('d/m/Y', $tanggalmasuk); // Assuming the date format is dd/mm/yyyy
+            $formattedDateMasuk = $datemasuk->format('Y-m-d'); // Convert the date to the format that your SQL database accepts (yyyy-mm-dd)
+            $tanggalkeluar = $_POST["tanggalkeluar"];
+            $datekeluar = DateTime::createFromFormat('d/m/Y', $tanggalkeluar); // Assuming the date format is dd/mm/yyyy
+            $formattedDateKeluar = $datekeluar->format('Y-m-d');
             $sql = "UPDATE menyewa SET
         no_kamar='$no_kamar',
-        tanggalmasuk='$tanggalmasuk',
-        tanggalkeluar='$tanggalkeluar'
+        tanggalmasuk='$formattedDateMasuk',
+        tanggalkeluar='$formattedDateKeluar'
         WHERE kode_transaksi='$kode_transaksi'";
             mysqli_query($conn, $sql);
             echo "Edit Data <a href='menyewa.php'>[kembali]</a>";

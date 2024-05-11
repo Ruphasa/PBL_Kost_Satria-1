@@ -485,7 +485,7 @@ $dataKamar = printData($sqlkamar);
                                     tanggal masuk
                                 </label>
                                 <div class="col-sm-10">
-                                    <div class="input-group date" id="tanggalmasuk" name="tanggalmasuk">
+                                    <div class="input-group date" id="date1">
                                         <input type="text" class="form-control" name="tanggalmasuk">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
@@ -498,7 +498,7 @@ $dataKamar = printData($sqlkamar);
                             </form>
                             <script type="text/javascript">
                                 $(function() {
-                                    $('#datepicker1').datepicker();
+                                    $('#date1').datepicker();
                                 });
                             </script>
 
@@ -508,7 +508,7 @@ $dataKamar = printData($sqlkamar);
                                     tanggal keluar
                                 </label>
                                 <div class="col-sm-10">
-                                    <div class="input-group date" id="tanggalkeluar" name="tanggalkeluar">
+                                    <div class="input-group date" id="date2">
                                         <input type="text" class="form-control" name="tanggalkeluar">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
@@ -522,7 +522,7 @@ $dataKamar = printData($sqlkamar);
                                             
                             <script type="text/javascript">
                                 $(function() {
-                                    $('#datepicker2').datepicker();
+                                    $('#date2').datepicker();
                                 });
                             </script>
                                 <?php
