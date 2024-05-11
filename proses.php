@@ -171,11 +171,11 @@
             require_once 'backend.php';
             $kode_transaksi = $_POST["kode_transaksi"];
             $no_kamar = $_POST["no_kamar"];
-            $tanggalmasuk = $_POST['tanggalmasuk']; // Assuming the date is submitted via POST
-            $datemasuk = DateTime::createFromFormat('d/m/Y', $tanggalmasuk); // Assuming the date format is dd/mm/yyyy
+            $tanggalmasuk = $_POST["tanggalMasuk"]; // Assuming the date is submitted via POST
+            $datemasuk = DateTime::createFromFormat('m/d/Y', $tanggalmasuk); // Assuming the date format is dd/mm/yyyy
             $formattedDateMasuk = $datemasuk->format('Y-m-d'); // Convert the date to the format that your SQL database accepts (yyyy-mm-dd)
-            $tanggalkeluar = $_POST['tanggalkeluar'];
-            $datekeluar = DateTime::createFromFormat('d/m/Y', $tanggalkeluar); // Assuming the date format is dd/mm/yyyy
+            $tanggalkeluar = $_POST["tanggalKeluar"];
+            $datekeluar = DateTime::createFromFormat('m/d/Y', $tanggalkeluar); // Assuming the date format is dd/mm/yyyy
             $formattedDateKeluar = $datekeluar->format('Y-m-d');
             $sql = "INSERT INTO menyewa (
         kode_transaksi, no_kamar, tanggalmasuk, tanggalkeluar
@@ -188,10 +188,10 @@
             require_once 'backend.php';
             $kode_transaksi = $_POST["kode_transaksi"];
             $no_kamar = $_POST["no_kamar"];
-            $tanggalmasuk = $_POST["tanggalmasuk"]; // Assuming the date is submitted via POST
+            $tanggalmasuk = $_POST["tanggalMasuk"]; // Assuming the date is submitted via POST
             $datemasuk = DateTime::createFromFormat('d/m/Y', $tanggalmasuk); // Assuming the date format is dd/mm/yyyy
             $formattedDateMasuk = $datemasuk->format('Y-m-d'); // Convert the date to the format that your SQL database accepts (yyyy-mm-dd)
-            $tanggalkeluar = $_POST["tanggalkeluar"];
+            $tanggalkeluar = $_POST["tanggalKeluar"];
             $datekeluar = DateTime::createFromFormat('d/m/Y', $tanggalkeluar); // Assuming the date format is dd/mm/yyyy
             $formattedDateKeluar = $datekeluar->format('Y-m-d');
             $sql = "UPDATE menyewa SET

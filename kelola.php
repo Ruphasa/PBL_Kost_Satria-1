@@ -479,14 +479,13 @@ $dataKamar = printData($sqlkamar);
                                     </div>
                                     <div class="mb-3 row mt-4">
                                         <div class="col">
-                            <form>
                             <div class="mb-3 row">
                                 <label for="date" class="col-sm-2 col-form-label">
                                     tanggal masuk
                                 </label>
                                 <div class="col-sm-10">
                                     <div class="input-group date" id="date1">
-                                        <input type="text" class="form-control" name="tanggalmasuk">
+                                        <input type="text" class="form-control" name="tanggalMasuk">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
                                                 <i class="fa fa-calendar"></i>
@@ -495,21 +494,18 @@ $dataKamar = printData($sqlkamar);
                                     </div>
                                 </div>
                             </div>
-                            </form>
                             <script type="text/javascript">
                                 $(function() {
                                     $('#date1').datepicker();
                                 });
                             </script>
-
-                            <form>
                             <div class="mb-3 row">
                                 <label for="date" class="col-sm-2 col-form-label">
                                     tanggal keluar
                                 </label>
                                 <div class="col-sm-10">
                                     <div class="input-group date" id="date2">
-                                        <input type="text" class="form-control" name="tanggalkeluar">
+                                        <input type="text" class="form-control" name="tanggalKeluar">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
                                                 <i class="fa fa-calendar"></i>
@@ -517,9 +513,7 @@ $dataKamar = printData($sqlkamar);
                                         </span>
                                     </div>
                                 </div>
-                            </div>
-                            </form>
-                                            
+                            </div>                                            
                             <script type="text/javascript">
                                 $(function() {
                                     $('#date2').datepicker();
