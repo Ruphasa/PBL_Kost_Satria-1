@@ -32,7 +32,7 @@
                     <figcaption class="blockquote-footer">
                 Managed by <cite title="Source Title">handsome people</cite>
             </figcaption>
-            <a href="kelola.php?tambahkamar=1" type="button" class="btn btn-primary mb-3">
+            <a href="kelola.php?tambahkamar" type="button" class="btn btn-primary mb-3">
                 <i class="fa fa-plus"></i>
                 Tambah Data
             </a>
@@ -59,7 +59,7 @@
                     <td><?= $row['alamat_kamar'] ?></td>
                     <td><?= $row['KTP_pembantu'] ?></td>
                     <td>
-                        <a href="kelola.php?ubah3=1" type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah3" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>

@@ -1,8 +1,11 @@
 <?php
     require 'backend.php';
-    $sql= "SELECT * FROM kamar";
-    $sql= "SELECT * FROM transaksi";
-    $data = printData($sql);
+    $sqlkamar= "SELECT * FROM kamar";
+    $sqltransaksi= "SELECT * FROM transaksi";
+    $sqlmenyewa= "SELECT * FROM menyewa";
+    $datakamar = printData($sqlkamar);
+    $datatransaksi = printData($sqltransaksi);
+    $datamenyewa = printData($sqlmenyewa);
     ?>
 <!DOCTYPE html>
 <html>
@@ -50,23 +53,23 @@
                 </thead>
                 <tbody>
                     <tr>
-                    <?php foreach($data as $row): ?>
+                    <?php foreach($datamenyewa as $row): ?>
                     <td><?= $row['kode_transaksi'] ?></td>
                     <td><?= $row['no_kamar'] ?></td>
-                    <td><?= $row['yyyy_dt_mm'] ?></td>
-                    <td><?= $row['yyyy_dt_mm'] ?></td>
+                    <td><?= $row['tanggalmasuk'] ?></td>
+                    <td><?= $row['tanggalkeluar'] ?></td>
                     <td>
-                        <a href="kelola.php?ubah6=1" type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah6" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>
-                        <button type="button" onclick="changeVariable3('<?= $row['kode_transaksi']?>')" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal3">
+                        <button type="button" onclick="changeVariable6('<?= $row['kode_transaksi']?>')" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal6">
                         Hapus
                         </button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
-                <div class="modal fade" id="deleteModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="deleteModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -74,11 +77,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ingin menghapus Data Sewa No. <span id="deleteVariable3"></span>?
+                        ingin menghapus Data Sewa No. <span id="deleteVariable6"></span>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a href="hapus.php?hapussewa" id="no_kamar" type="button" class="btn btn-primary">Save changes</a>
+                        <a href="hapus.php?hapussewa" id="kode_transaksi" type="button" class="btn btn-primary">Save changes</a>
                     </div>
                     </div>
                 </div>

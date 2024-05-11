@@ -31,8 +31,8 @@ if (isset($_GET['hapuskamar'])) {
     echo "Hapus Data <a href='tanggungan.php'>[kembali]</a>";
 } else if (isset($_GET['hapussewa'])) {
     require_once 'backend.php';
-    $kode_tanggungan = $_GET['hapussewa'];
-    $sql = "DELETE FROM bayartanggungan WHERE kode_tanggungan = '$kode_tanggungan'";
+    $kode_transaksi = $_GET['hapussewa'];
+    $sql = "DELETE FROM menyewa WHERE kode_transaksi = '$kode_transaksi'";
     mysqli_query($conn, $sql);
     echo "Hapus Data <a href='menyewa.php'>[kembali]</a>";
 }

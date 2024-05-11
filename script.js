@@ -1,7 +1,7 @@
-KTP_Penyewa = '';
-KTP_pembantu = '';
-no_kamar = '';
-kode_transaksi = "A";
+KTP_Penyewa = -1;
+KTP_pembantu = -1;
+no_kamar = -1;
+kode_transaksi = -1;
 kode_tanggungan = -1;
 function changeVariable(data) {
     KTP_Penyewa = data;
@@ -35,4 +35,11 @@ function changeVariable5(data) {
     console.log("Variable value changed to: " + kode_tanggungan);
     document.getElementById("deleteVariable5").innerText = kode_tanggungan;
     document.getElementById("kode_tanggungan").href = "hapus.php?hapustanggungan=" + kode_tanggungan;
+}
+
+function changeVariable6(data) {
+    kode_transaksi = data;
+    console.log("Variable value changed to: " + kode_transaksi);
+    document.getElementById("deleteVariable6").innerText = kode_transaksi;
+    document.getElementById("kode_transaksi").href = "hapus.php?hapussewa=" + kode_transaksi;
 }

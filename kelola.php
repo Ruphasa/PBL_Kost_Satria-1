@@ -485,8 +485,8 @@ $dataKamar = printData($sqlkamar);
                                     tanggal masuk
                                 </label>
                                 <div class="col-sm-10">
-                                    <div class="input-group date" id="datepicker1">
-                                        <input type="text" class="form-control">
+                                    <div class="input-group date" id="tanggalmasuk" name="tanggalmasuk">
+                                        <input type="text" class="form-control" name="tanggalmasuk">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
                                                 <i class="fa fa-calendar"></i>
@@ -508,8 +508,8 @@ $dataKamar = printData($sqlkamar);
                                     tanggal keluar
                                 </label>
                                 <div class="col-sm-10">
-                                    <div class="input-group date" id="datepicker2">
-                                        <input type="text" class="form-control">
+                                    <div class="input-group date" id="tanggalkeluar" name="tanggalkeluar">
+                                        <input type="text" class="form-control" name="tanggalkeluar">
                                         <span class="input-group-append">
                                             <span class="input-group-text bg-white">
                                                 <i class="fa fa-calendar"></i>

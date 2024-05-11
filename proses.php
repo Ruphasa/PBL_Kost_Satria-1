@@ -166,6 +166,34 @@
             mysqli_query($conn, $sql);
             echo "Edit Data <a href='tanggungan.php'>[kembali]</a>";
         }
+    }else if (isset($_POST['aksi6'])) {
+        if ($_POST['aksi6'] == "add") {
+            require_once 'backend.php';
+            $kode_transaksi = $_POST["kode_transaksi"];
+            $no_kamar = $_POST["no_kamar"];
+            $tanggalmasuk=$_POST["tanggalmasuk"];
+            $tanggalkeluar=$_POST["tanggalkeluar"];
+            $sql = "INSERT INTO menyewa (
+        kode_transaksi, no_kamar, tanggalmasuk, tanggalkeluar
+        ) VALUES (
+            '$kode_transaksi', '$no_kamar', '$tanggalmasuk', '$tanggalkeluar'
+            )";
+            mysqli_query($conn, $sql);
+            echo "Tambah Data <a href='menyewa.php'>[kembali]</a>";
+        } else if ($_POST['aksi6'] == "edit") {
+            require_once 'backend.php';
+            $kode_transaksi = $_POST["kode_transaksi"];
+            $no_kamar = $_POST["no_kamar"];
+            $tanggalmasuk=$_POST["tanggalmasuk"];
+            $tanggalkeluar=$_POST["tanggalkeluar"];
+            $sql = "UPDATE menyewa SET
+        no_kamar='$no_kamar',
+        tanggalmasuk='$tanggalmasuk',
+        tanggalkeluar='$tanggalkeluar'
+        WHERE kode_transaksi='$kode_transaksi'";
+            mysqli_query($conn, $sql);
+            echo "Edit Data <a href='menyewa.php'>[kembali]</a>";
+        }
     }
     ?>
 </body>

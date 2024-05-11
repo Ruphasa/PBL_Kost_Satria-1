@@ -55,7 +55,7 @@
                     <td><?= $row['alamat_kos'] ?></td>
                     <td><?= $row['no_hp_pembantu'] ?></td>
                     <td>
-                        <a href="kelola.php?ubah4=1" type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah4" type="button" class="btn btn-success btn-sm">
                             <i class="fa fa-pencil"></i>
                             Ubah
                         </a>
